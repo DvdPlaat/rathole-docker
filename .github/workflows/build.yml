@@ -45,7 +45,7 @@ jobs:
           target: x86_64-unknown-linux-musl
           toolchain: stable
           args: "--locked --release --manifest-path rathole/Cargo.toml"
-          strip: true
+          strip: false
 
       - name: Build and push Docker images
         id: docker_build_x86
