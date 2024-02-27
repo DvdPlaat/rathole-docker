@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: clone rathle
         run: git clone https://github.com/rapiz1/rathole
-
+      - uses: Swatinem/rust-cache@v2
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@v0
         with:
@@ -38,6 +38,8 @@ jobs:
           toolchain: stable
           args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: true
+      - name: fix possibly bad cache
+        run: rm -rf ./rathole/target/release
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@master
         with:
@@ -72,6 +74,8 @@ jobs:
           push: true
           tags: |
             ghcr.io/dvdplaat/rathole:arm64
+            ghcr.io/dvdplaat/rathole:arm64/v8
+            ghcr.io/dvdplaat/rathole:arm64/v7
           build-args: |
             ARCH=aarch64-unknown-linux-musl
           secrets: |
