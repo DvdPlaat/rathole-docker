@@ -27,13 +27,15 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+      - name: clone rathle
+        run: git clone https://github.com/rapiz1/rathole
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@v0
         with:
           command: "build"
           target: x86_64-unknown-linux-musl
           toolchain: stable
-          args: "--locked --release"
+          args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: true
       - name: Build binary
         uses: houseabsolute/actions-rust-cross@v0
@@ -41,7 +43,7 @@ jobs:
           command: "build"
           target: aarch64-unknown-linux-musl
           toolchain: stable
-          args: "--locked --release"
+          args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: true
       - name: Build and push Docker images
         id: docker_build_x86
