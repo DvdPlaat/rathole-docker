@@ -74,8 +74,9 @@ jobs:
           push: true
           tags: |
             ghcr.io/dvdplaat/rathole:arm64
+            ghcr.io/dvdplaat/rathole:arm/v7
+            ghcr.io/dvdplaat/rathole:arm/v6
             ghcr.io/dvdplaat/rathole:arm64/v8
-            ghcr.io/dvdplaat/rathole:arm64/v7
           build-args: |
             ARCH=aarch64-unknown-linux-musl
           secrets: |
