@@ -37,7 +37,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/rathole:amd64
+            ghcr.io/dvdplaat/rathole:amd64
           build-args: |
             ARCH=x86_64-unknown-linux-musl
           secrets: |
@@ -52,7 +52,7 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
-            ghcr.io/${{ github.repository_owner }}/rathole:arm64
+            ghcr.io/dvdplaat/rathole:arm64
           build-args: |
             ARCH=aarch64-unknown-linux-musl
           secrets: |
