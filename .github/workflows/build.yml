@@ -58,6 +58,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
+            ghcr.io/dvdplaat/rathole:latest
             ghcr.io/dvdplaat/rathole:amd64
           build-args: |
             ARCH=x86_64-unknown-linux-musl
@@ -73,6 +74,7 @@ jobs:
           platforms: linux/arm64
           push: true
           tags: |
+            ghcr.io/dvdplaat/rathole:latest
             ghcr.io/dvdplaat/rathole:arm64
             ghcr.io/dvdplaat/rathole:arm/v7
             ghcr.io/dvdplaat/rathole:arm/v6
