@@ -49,34 +49,32 @@ jobs:
           args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: false
 
-      - name: Build and push Docker images
-        id: docker_build_x86
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./Dockerfile
-          platforms: linux/amd64
-          push: true
-          tags: |
-            ghcr.io/dvdplaat/rathole:latest
-            ghcr.io/dvdplaat/rathole:amd64
-          build-args: |
-            ARCH=x86_64-unknown-linux-musl
-          secrets: |
-            GITHUB_TOKEN
+      # - name: Build and push Docker images
+      #   id: docker_build_x86
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     context: .
+      #     file: ./Dockerfile
+      #     platforms: linux/amd64
+      #     push: true
+      #     tags: |
+      #       ghcr.io/dvdplaat/rathole:latest
+      #       ghcr.io/dvdplaat/rathole:amd64
+      #     build-args: |
+      #       ARCH=x86_64-unknown-linux-musl
+      #     secrets: |
+      #       GITHUB_TOKEN
 
       - name: Build and push Docker images
         id: docker_build_arm
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v5
         with:
           context: .
           file: ./Dockerfile
-          platforms: linux/arm64,linux/arm/v7,linux/arm/v6
+          platforms: linux/arm64,linux/arm/v7,linux/arm/v6,linux/amd64
           push: true
           tags: |
             ghcr.io/dvdplaat/rathole:latest
             ghcr.io/dvdplaat/rathole:arm64
-          build-args: |
-            ARCH=aarch64-unknown-linux-musl
           secrets: |
             GITHUB_TOKEN
