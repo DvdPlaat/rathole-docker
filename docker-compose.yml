@@ -2,7 +2,5 @@ version: '3'
 services:
   rathole:
     build: 
-      args:
-        - ARCH=x86_64-unknown-linux-musl
       dockerfile: Dockerfile
       
