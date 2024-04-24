@@ -34,7 +34,7 @@ jobs:
         uses: houseabsolute/actions-rust-cross@v0
         with:
           command: "build"
-          target: aarch64-unknown-linux-gnu
+          target: aarch64-unknown-linux-musl
           toolchain: stable
           args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: true
@@ -44,7 +44,7 @@ jobs:
         uses: houseabsolute/actions-rust-cross@master
         with:
           command: "build"
-          target: x86_64-unknown-linux-gnu
+          target: x86_64-unknown-linux-musl
           toolchain: stable
           args: "--locked --release --manifest-path rathole/Cargo.toml"
           strip: false
@@ -54,7 +54,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
+          file: ./Dockerfile.alpine
           platforms: linux/arm64,linux/amd64
           push: true
           tags: |
