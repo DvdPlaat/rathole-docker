@@ -5,7 +5,7 @@ COPY ./rathole/target/x86_64-unknown-linux-gnu/release/rathole .
 # Raspberry PI build
 FROM debian:slim as barm64
 WORKDIR /app
-COPY ./rathole/target/aarch64-unknown-linux-gnu/release/rathole .
+COPY ./rathole/target/aarch64-unknown-linux-musl/release/rathole .
 
 ARG TARGETARCH
 # Start from the previous build based on arch 
