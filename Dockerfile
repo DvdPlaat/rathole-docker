@@ -1,9 +1,9 @@
 # Amd64 build
-FROM alpine as bamd64
+FROM debian:slim  as bamd64
 WORKDIR /app
 COPY ./rathole/target/x86_64-unknown-linux-gnu/release/rathole .
 # Raspberry PI build
-FROM alpine as barm64
+FROM debian:slim as barm64
 WORKDIR /app
 COPY ./rathole/target/aarch64-unknown-linux-gnu/release/rathole .
 
