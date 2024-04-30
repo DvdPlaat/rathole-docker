@@ -1,9 +1,9 @@
 # Amd64 build
-FROM debian:slim  as bamd64
+FROM debian:bookworm-slim as bamd64
 WORKDIR /app
 COPY ./rathole/target/x86_64-unknown-linux-gnu/release/rathole .
 # Raspberry PI build
-FROM debian:slim as barm64
+FROM debian:bookworm-slim as barm64
 WORKDIR /app
 COPY ./rathole/target/aarch64-unknown-linux-musl/release/rathole .
 
